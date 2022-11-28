@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import CharacterContainer from "./components/CharacterContainer";
+import Container from "./components/Container";
+import Header from "./components/Header";
+import Welcome from "./components/Welcome";
 
 function App() {
+  const [characters, setCharacers] = useState(null);
+
+  const reqApi = async () => {
+    const api = await fetch(
+      `https://simpsons-quotes-api.herokuapp.com/quotes?count=4`
+    );
+    const frase = await api.json();
+    setCharacers(frase);
+    console.log(frase);
+  };
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Header />
+      <Welcome reqApi={reqApi}/>
+
+      {characters? (
+        
+      <CharacterContainer characters={characters}/>
+      ):(
+        <></>
+      )}
+    </Container>
   );
 }
 
