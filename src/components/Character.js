@@ -13,6 +13,7 @@ const Character = (props) => {
       <PhraseText>
         {quote}
       </PhraseText>
+    <NameCreator>by Samuel Saravia</NameCreator>
     </ContentCharacters>
   );
 };
@@ -58,4 +59,11 @@ const PhraseText=styled.h4`
     color:#2a9d8f;
     height:100px;
 `;
+
+const NameCreator = styled.p`
+font-weight:700;
+text-align:center;
+color:red;
+`;
 export default Character;
+

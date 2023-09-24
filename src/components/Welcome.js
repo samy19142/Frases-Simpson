@@ -17,9 +17,12 @@ const Welcome = (props) => {
 const ImageLogo = styled.img`
   width: 450px;
   height: auto;
+  transition: background-color 1s linear;
 
   &:hover {
     cursor: pointer;
+    background-color: #e2e437;
+    border-radius:50px;
   }
 `;
 

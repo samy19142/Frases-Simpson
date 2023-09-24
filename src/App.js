@@ -9,7 +9,7 @@ function App() {
 
   const reqApi = async () => {
     const api = await fetch(
-      `https://simpsons-quotes-api.herokuapp.com/quotes?count=4`
+      `https://thesimpsonsquoteapi.glitch.me/quotes`
     );
     const frase = await api.json();
     setCharacers(frase);
